@@ -5,7 +5,7 @@ URL='http://localhost:3000'
 #URL='https://todo-list-90562.herokuapp.com'
 #URL='http://httpbin.org/post'
 
-curl ${URL}users/${USER_ID} \
+curl ${URL}/users/${USER_ID} \
   --silent \
   --request GET \
   --header "Authorization: Token token=${TOKEN}"

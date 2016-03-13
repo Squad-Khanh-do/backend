@@ -14,7 +14,7 @@ curl ${URL}/sign-up \
       "password": "password",
       "password_confirmation": "password"
     }
-  }'
+  }' | jsonlint
 
 echo '----------------------------------------------'
 echo  'sign IN.....'
