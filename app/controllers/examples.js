@@ -5,6 +5,7 @@ const models = require('app/models');
 const Example = models.example;
 
 const authenticate = require('./concerns/authenticate');
+const multer = require('./concerns/multer.js');
 
 const index = (req, res, next) => {
   Example.find()
@@ -63,5 +64,6 @@ module.exports = controller({
   update,
   destroy,
 }, { before: [
-  { method: authenticate, except: ['index', 'show'] },
+  { method: authenticate, except: ['index', 'show'], },
+  { method: multer.single(), except: ['index', 'show', 'destroy'], },
 ], });

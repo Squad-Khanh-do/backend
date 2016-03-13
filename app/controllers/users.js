@@ -1,6 +1,6 @@
 'use strict';
 
-const debug = require('debug')('take-a-vey:users');
+const debug = require('debug')('express-template:users');
 
 const controller = require('lib/wiring/controller');
 const models = require('app/models');
@@ -9,6 +9,7 @@ const User = models.user;
 const crypto = require('crypto');
 
 const authenticate = require('./concerns/authenticate');
+const multer = require('./concerns/multer.js');
 
 const getToken = () =>
   new Promise((resolve, reject) =>
@@ -111,5 +112,6 @@ module.exports = controller({
   signout,
   changepw,
 }, { before: [
-  { method: authenticate, except: ['signup', 'signin'] },
+  { method: authenticate, except: ['signup', 'signin'], },
+  { method: multer.single(), except: ['index', 'show', 'signout'], },
 ], });
