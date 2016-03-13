@@ -10,25 +10,23 @@ curl ${URL}/sign-up \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "email": "jess@statefarm.com",
+      "email": "jacob@statefarm.com",
       "password": "password",
       "password_confirmation": "password"
     }
   }'
 
-echo
 echo '----------------------------------------------'
-echo 'failure is good 400'
+echo  'sign IN.....'
+echo '----------------------------------------------'
 
-curl ${URL}/sign-up \
-  --include \
+curl ${URL}/sign-in \
+  --silent \
   --request POST \
   --header "Content-Type: application/json" \
   --data '{
     "credentials": {
-      "email": "frank@statefarm.com",
-      "password": "password",
-      "password_confirmation": "password"
+      "email": "jacob@statefarm.com",
+      "password": "password"
     }
-  }'
-echo
+  }' | jsonlint

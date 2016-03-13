@@ -1,11 +1,20 @@
 #!/bin/bash
+TOKEN=''
+ID='1'
+URL='http://localhost:3000'
+#URL='https://todo-list-90562.herokuapp.com'
+#URL='http://httpbin.org/post'
 
-curl --include --request PATCH http://localhost:3000/change-password/$ID \
-  --header "Authorization: Token token=$TOKEN" \
+curl ${URL}change-password/${ID} \
+  --include\
+  --request PATCH \
+  --header "Authorization: Token token=${TOKEN}" \
   --header "Content-Type: application/json" \
   --data '{
     "passwords": {
-      "old": "an example password",
-      "new": "super sekrit"
+      "old": "password",
+      "new": "password"
     }
   }'
+
+echo
