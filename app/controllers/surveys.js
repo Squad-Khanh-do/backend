@@ -32,5 +32,5 @@ module.exports = controller({
   show,
   create,
 }, { before: [
-  { method: authenticate, except: ['index', 'show','create'], }
+  { method: authenticate, except: ['index', 'show'], }
 ], });

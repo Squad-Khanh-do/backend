@@ -6,17 +6,10 @@ TOKEN='VidG+arRIW30WdMjot4mjw=='
 
 echo 'json here is good :'
 curl ${URL}/surveys \
-  --include \
-  --request POST \
+  --silent \
+  --request GET \
   --header "Content-Type: application/json" \
-  --header "Authorization: Token token=${TOKEN}" \
-  --data '{
-    "survey" : {
-      "surveyName": "These dont count!",
-      "Question": "string of a question ???",
-      "Answer": "this is a string test"
-    }
-  }'
+  --header "Authorization: Token token=${TOKEN}" | jsonlint
 
 #--silent \
 echo
