@@ -30,8 +30,8 @@ const create = (req, res, next) => {
 const update = (req, res, next) => {
   let search = { _id: req.params.id, _owner: req.currentUser._id };
   Survey.findOne(search)
-    .then(example => {
-      if (!example) {
+    .then(survey => {
+      if (!survey) {
         return next();
       }
 
