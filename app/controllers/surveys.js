@@ -42,11 +42,26 @@ const update = (req, res, next) => {
     .catch(err => next(err));
 };
 
+const destroy = (req, res, next) => {
+  let search = { _id: req.params.id, _owner: req.currentUser._id };
+  Survey.findOne(search)
+    .then(survey => {
+      if (!survey) {
+        return next();
+      }
+
+      return Survey.remove()
+        .then(() => res.sendStatus(200));
+    })
+    .catch(err => next(err));
+};
+
 module.exports = controller({
   index,
   show,
   create,
   update,
+  destroy,
 }, { before: [
   { method: authenticate, except: ['index', 'show'], }
 ], });
