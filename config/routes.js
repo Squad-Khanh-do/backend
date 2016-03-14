@@ -11,7 +11,7 @@ routes.delete('/sign-out/:id', 'users#signout');
 routes.patch('/change-password/:id', 'users#changepw');
 routes.resources('users', { only: ['index', 'show'] });
 routes.resources('surveys', { only: ['index', 'show', 'create','update','destroy'] });
-routes.resources('answers', { only: ['index', 'show'] });
+routes.resources('answers', { only: ['index', 'show', 'update'] });
 routes.post('/answers/:id', 'answers#create');
 
 module.exports = routes;

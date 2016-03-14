@@ -28,10 +28,26 @@ const create = (req, res, next) => {
     .catch(err => next(err));
 };
 
+const update = (req, res, next) => {
+  let search = { _id: req.params.id, _owner: req.currentUser._id };
+  Answers.findOne(search)
+    .then(answer => {
+      if (!answer) {
+        return next();
+      }
+
+      delete req.body._owner;  // disallow owner reassignment.
+      return answer.update(req.body.answer)
+        .then(() => res.sendStatus(200));
+    })
+    .catch(err => next(err));
+};
+
 module.exports = controller({
   index,
   show,
   create,
+  update,
 }, { before: [
   { method: authenticate, except: ['index', 'show'], }
 ], });
