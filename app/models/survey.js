@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 const surveySchema = new mongoose.Schema({
-  surveyName: {
+  title: {
     type: String,
     required: true,
   },

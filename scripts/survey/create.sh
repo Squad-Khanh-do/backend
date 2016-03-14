@@ -12,7 +12,7 @@ curl ${URL}/surveys \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "survey" : {
-      "surveyName": "These dont count!",
+      "title": "These dont count!",
       "Question": "string of a question ???",
       "Answer": "this is a string test"
     }
