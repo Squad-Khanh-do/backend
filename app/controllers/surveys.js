@@ -36,7 +36,7 @@ const update = (req, res, next) => {
       }
 
       delete req.body._owner;  // disallow owner reassignment.
-      return Survey.update(req.body.survey)
+      return survey.update(req.body.survey)
         .then(() => res.sendStatus(200));
     })
     .catch(err => next(err));
@@ -50,7 +50,7 @@ const destroy = (req, res, next) => {
         return next();
       }
 
-      return Survey.remove()
+      return survey.remove()
         .then(() => res.sendStatus(200));
     })
     .catch(err => next(err));
