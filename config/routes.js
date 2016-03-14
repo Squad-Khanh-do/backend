@@ -10,6 +10,6 @@ routes.post('/sign-in', 'users#signin');
 routes.delete('/sign-out/:id', 'users#signout');
 routes.patch('/change-password/:id', 'users#changepw');
 routes.resources('users', { only: ['index', 'show'] });
-routes.resources('surveys', { only: ['index', 'show', 'create'] });
+routes.resources('surveys', { only: ['index', 'show', 'create','update'] });
 
 module.exports = routes;
