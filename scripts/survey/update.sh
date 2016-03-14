@@ -2,8 +2,8 @@
 URL='http://localhost:3000'
 #URL='https://todo-list-90562.herokuapp.com'
 #URL='http://httpbin.org/post'
-TOKEN='VidG+arRIW30WdMjot4mjw=='
-ID='56e5f4b996f7d49e2c39c075'
+TOKEN='RGD/qk5kf4h64CeYCLBHuA=='
+ID='56e7431d2698409d20740cea'
 
 echo 'JSON here is good :'
 curl ${URL}/surveys/${ID} \
@@ -13,9 +13,11 @@ curl ${URL}/surveys/${ID} \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "survey" : {
-      "surveyName": "This is a patch request",
-      "Question": "this is a patch request",
-      "Answer": "This is an update"
+      "title": "BAH Update this shit",
+      "description": "BAH updating",
+      "questions": {
+        "text": "Bah Me case tu case?"
+      }
     }
   }' | jsonlint
 

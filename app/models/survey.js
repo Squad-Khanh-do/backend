@@ -7,13 +7,14 @@ const surveySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Question: {
+  description: {
     type: String,
-    required: true
   },
-  Answer: {
-    type: String,
-    required: true
+  questions: {
+    text: {
+      type: String,
+      required: false
+    }
   },
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
