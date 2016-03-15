@@ -12,11 +12,6 @@ const index = (req, res, next) => {
     .catch(err => next(err));
 };
 
-const show = (req, res, next) => {
-  SurveyResponse.findById(req.params.id)
-    .then(surveyResponse => surveyResponse ? res.json({ surveyResponse }) : next())
-    .catch(err => next(err));
-};
 
 const create = (req, res, next) => {
   let surveyResponse = Object.assign(req.body.surveyResponse, {
@@ -32,6 +27,5 @@ const create = (req, res, next) => {
 
 module.exports = controller({
   index,
-  show,
   create,
 });
