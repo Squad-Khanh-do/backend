@@ -10,12 +10,12 @@ const surveySchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  questions: {
+  questions: [{
     text: {
       type: String,
       required: false
     }
-  },
+  }],
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -25,10 +25,6 @@ const surveySchema = new mongoose.Schema({
   timestamps: true,
   toJSON: { virtuals: true },
 });
-
-// surveySchema.virtual('length').get(function length() {
-//   return this.text.length;
-// });
 
 const Survey = mongoose.model('Survey', surveySchema);
 

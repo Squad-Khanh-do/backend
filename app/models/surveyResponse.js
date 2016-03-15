@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 
+
 const surveyResponsesSchema = new mongoose.Schema({
   response: {
     type: String,
@@ -11,12 +12,7 @@ const surveyResponsesSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Survey',
     required: true,
-  },
-  // _owner: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'User',
-  //   required: false,
-  // },
+  }
 }, {
   timestamps: true,
   toJSON: { virtuals: true },
