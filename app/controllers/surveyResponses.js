@@ -4,9 +4,6 @@ const controller = require('lib/wiring/controller');
 const models = require('app/models');
 const SurveyResponse = models.surveyResponse;
 
-const authenticate = require('./concerns/authenticate');
-const multer = require('./concerns/multer.js');
-
 const index = (req, res, next) => {
   // KN- updated the paramater
   let search = { _survey: req.params.id};
@@ -32,43 +29,9 @@ const create = (req, res, next) => {
 };
 
 
-const update = (req, res, next) => {
-  let search = { _id: req.params.id, _owner: req.currentUser._id };
-  SurveyResponse.findOne(search)
-    .then(surveyResponse => {
-      if (!surveyResponse) {
-        return next();
-      }
-
-      delete req.body._owner;  // disallow owner reassignment.
-      return surveyResponse.update(req.body.surveyResponse)
-        .then(() => res.sendStatus(200));
-    })
-    .catch(err => next(err));
-};
-
-
-const destroy = (req, res, next) => {
-  let search = { _id: req.params.id, _owner: req.currentUser._id };
-  SurveyResponse.findOne(search)
-    .then(surveyResponse => {
-      if (!surveyResponse) {
-        return next();
-      }
-
-      return surveyResponse.remove()
-        .then(() => res.sendStatus(200));
-    })
-    .catch(err => next(err));
-};
 
 module.exports = controller({
   index,
   show,
   create,
-  update,
-  destroy,
-}, { before: [
-  { method: authenticate, except: ['index', 'show', 'create'] },
-  { method: multer.single(), except: ['index', 'show', 'destroy', 'create'], },
-], });
+});
