@@ -22,28 +22,15 @@ const show = (req, res, next) => {
 };
 
 const create = (req, res, next) => {
-  // let surveyResponse = Object.assign(req.body.surveyResponse, {
-  //   _owner: req.currentUser._id,
-  //   _survery:req.params.id
-  // });
-//   SurveyResponse.create(surveyResponse)
-//     .then(surveyResponse => res.json({ surveyResponse }))
-//     .catch(err => next(err));
-// };
-
-//Kn testing
-  let search = { _survey: req.params.id};
-  SurveyResponse.findOne(search)
-    .then(surveyResponse => {
-      if (!surveyResponse) {
-        return next();
-      }
-
-    return surveyResponse.create(surveyResponse)
-      .then(surveyResponse => res.json({ surveyResponse }));
-  })
-  .catch(err => next(err));
+  let surveyResponse = Object.assign(req.body.surveyResponse, {
+    _survey: req.params.id
+    // _owner: req.currentUser._id,
+  });
+  SurveyResponse.create(surveyResponse)
+    .then(surveyResponse => res.json({ surveyResponse }))
+    .catch(err => next(err));
 };
+
 
 const update = (req, res, next) => {
   let search = { _id: req.params.id, _owner: req.currentUser._id };
@@ -82,6 +69,6 @@ module.exports = controller({
   update,
   destroy,
 }, { before: [
-  { method: authenticate, except: ['index', 'show'], },
-  { method: multer.single(), except: ['index', 'show', 'destroy'], },
+  { method: authenticate, except: ['index', 'show', 'create'] },
+  { method: multer.single(), except: ['index', 'show', 'destroy', 'create'], },
 ], });

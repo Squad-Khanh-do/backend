@@ -7,19 +7,16 @@ const surveyResponsesSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  _survery:{
+  _survey:{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Survey',
-        required: true,
-    // Figure how to use a mongoose ObjectId
-    //type: mongoose.Schema.Types.ObjectId,
-    // ref: 'User',
-  },
-  _owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
     required: true,
   },
+  // _owner: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'User',
+  //   required: false,
+  // },
 }, {
   timestamps: true,
   toJSON: { virtuals: true },
