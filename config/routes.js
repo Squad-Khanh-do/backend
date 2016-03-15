@@ -13,4 +13,5 @@ routes.resources('users', { only: ['index', 'show'] });
 routes.resources('surveys', { only: ['index', 'show', 'create','update','destroy'] });
 //routes.resources('surveyResponses', { only: ['index', 'show', 'update', 'create', 'destroy'] });
 routes.get('/surveys/:id/surveyResponses', 'surveyResponses#index');
+routes.post('/surveys/:id/surveyResponses', 'surveyResponses#create');
 module.exports = routes;
