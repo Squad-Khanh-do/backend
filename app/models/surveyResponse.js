@@ -2,14 +2,15 @@
 
 const mongoose = require('mongoose');
 
-const answersSchema = new mongoose.Schema({
+const surveyResponsesSchema = new mongoose.Schema({
   response: {
-    type: Number,
+    type: String,
     required: true,
   },
   _survery:{
-    type: String,
-    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Survey',
+        required: true,
     // Figure how to use a mongoose ObjectId
     //type: mongoose.Schema.Types.ObjectId,
     // ref: 'User',
@@ -24,6 +25,6 @@ const answersSchema = new mongoose.Schema({
   toJSON: { virtuals: true },
 });
 
-const Answers = mongoose.model('Answers', answersSchema);
+const SurveyResponses = mongoose.model('SurveyResponses', surveyResponsesSchema);
 
-module.exports = Answers;
+module.exports = SurveyResponses;

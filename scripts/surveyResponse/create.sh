@@ -2,20 +2,23 @@
 URL='http://localhost:3000'
 #URL='https://todo-list-90562.herokuapp.com'
 #URL='http://httpbin.org/post'
-TOKEN='VidG+arRIW30WdMjot4mjw=='
-ID='56e6d92e5c6e93ef3f7ab040'
+SURVEY_ID='56e76d3ff4e8980d2b601921'
+TOKEN='fWvXXpm//4TVmCFDNfr7ug=='
 
 echo 'JSON here is good :'
-curl ${URL}/answers/${ID} \
-  --silent \
-  --request PATCH \
+curl ${URL}/surveys/${SURVEY_ID}/surveyResponses \
+  --include \
+  --request POST \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "answer" : {
-      "response": 55555555
+    "surveyResponses" : {
+      "response": "2233445"
     }
-  }' | jsonlint
+  }'
 
 #--silent \
 echo
+
+
+# "survery": "56e6d334e2dd2c923eed5ab7"
