@@ -1,8 +1,8 @@
 #!/bin/bash
-URL='http://localhost:3000'
-#URL='https://todo-list-90562.herokuapp.com'
+#URL='http://localhost:3000'
+URL='https://take-a-vey.herokuapp.com'
 #URL='http://httpbin.org/post'
-TOKEN='VidG+arRIW30WdMjot4mjw=='
+TOKEN='nWECzdxbgfB5HUk+Z71TLw=='
 
 echo 'json here is good :'
 curl ${URL}/surveys \
@@ -12,8 +12,8 @@ curl ${URL}/surveys \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "survey" : {
-      "title": "This is a title.",
-      "description": "This is a test",
+      "title": "What is your favorite color?",
+      "description": "Find out the most popular favorite color.",
       "questions": {
         "text": "What is your favorite color?"
       }

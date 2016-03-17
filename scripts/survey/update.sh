@@ -1,6 +1,6 @@
 #!/bin/bash
-URL='http://localhost:3000'
-#URL='https://todo-list-90562.herokuapp.com'
+#URL='http://localhost:3000'
+URL='https://take-a-vey.herokuapp.com'
 #URL='http://httpbin.org/post'
 TOKEN='RGD/qk5kf4h64CeYCLBHuA=='
 ID='56e7431d2698409d20740cea'
