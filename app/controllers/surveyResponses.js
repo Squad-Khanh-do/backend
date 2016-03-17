@@ -3,6 +3,7 @@
 const controller = require('lib/wiring/controller');
 const models = require('app/models');
 const SurveyResponse = models.surveyResponse;
+const multer = require('./concerns/multer.js');
 
 
 const index = (req, res, next) => {
@@ -24,4 +25,9 @@ const create = (req, res, next) => {
 module.exports = controller({
   index,
   create,
+}, {
+  before: [{
+    method: multer.single(),
+    only: ['create'],
+  }, ],
 });
