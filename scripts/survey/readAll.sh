@@ -1,8 +1,8 @@
 #!/bin/bash
-#URL='http://localhost:3000'
-URL='https://take-a-vey.herokuapp.com'
+URL='http://localhost:3000'
+#URL='https://take-a-vey.herokuapp.com'
 #URL='http://httpbin.org/post'
-TOKEN='VidG+arRIW30WdMjot4mjw=='
+TOKEN='j9tDTL2BkAgCPI2G9FsI/g=='
 
 echo 'json here is good :'
 curl ${URL}/surveys \

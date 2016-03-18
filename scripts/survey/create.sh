@@ -1,8 +1,8 @@
 #!/bin/bash
-#URL='http://localhost:3000'
-URL='https://take-a-vey.herokuapp.com'
+URL='http://localhost:3000'
+#URL='https://take-a-vey.herokuapp.com'
 #URL='http://httpbin.org/post'
-TOKEN='nWECzdxbgfB5HUk+Z71TLw=='
+TOKEN='j9tDTL2BkAgCPI2G9FsI/g=='
 
 echo 'json here is good :'
 curl ${URL}/surveys \
@@ -12,11 +12,18 @@ curl ${URL}/surveys \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "survey" : {
-      "title": "What is your favorite color?",
-      "description": "Find out the most popular favorite color.",
-      "questions": {
-        "text": "What is your favorite color?"
-      }
+      "title": "New Question?",
+      "description": "Question favorite color.",
+      "questions": [{
+        "text": "Question me now okay r?",
+        "choice": {
+          "questone": "Test",
+          "questtwo": "thirdtest",
+          "questthree": "thirdtest",
+          "questfour": "Test",
+          "questfive": "thirdtest"
+        }
+      }]
     }
   }' | jsonlint
 

@@ -1,6 +1,6 @@
 #!/bin/bash
-#URL='http://localhost:3000'
-URL='https://take-a-vey.herokuapp.com'
+URL='http://localhost:3000'
+#URL='https://take-a-vey.herokuapp.com'
 #URL='http://httpbin.org/post'
 
 echo 'json here is good :'

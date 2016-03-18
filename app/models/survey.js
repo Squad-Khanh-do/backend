@@ -14,6 +14,28 @@ const surveySchema = new mongoose.Schema({
     text: {
       type: String,
       required: false
+    },
+    choice: {
+      questone: {
+        type: String,
+        required: false
+      },
+      questtwo: {
+        type: String,
+        required: false
+      },
+      questthree: {
+        type: String,
+        required: false
+      },
+      questfour: {
+        type: String,
+        required: false
+      },
+      questfive:{
+        type: String,
+        required: false
+      }
     }
   }],
   _owner: {
